@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  round_id: 1
+  player_id: 1
+  amount_betted: 1.5
+  roulette_choice: 1
+
+two:
+  round_id: 1
+  player_id: 1
+  amount_betted: 1.5
+  roulette_choice: 1

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Round:</strong>
+  <%= @bet.round_id %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @bet.player_id %>
+</p>
+
+<p>
+  <strong>Amount betted:</strong>
+  <%= @bet.amount_betted %>
+</p>
+
+<p>
+  <strong>Roulette choice:</strong>
+  <%= @bet.roulette_choice %>
+</p>
+
+<%= link_to 'Edit', edit_bet_path(@bet) %> |
+<%= link_to 'Back', bets_path %>
