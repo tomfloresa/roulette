@@ -1,0 +1,28 @@
+<% @players.each do |p| %>
+<h3 class="text-center"><%= link_to p.fullname, player_path(p) %>
+    (<%= p.money %>)</h3>
+
+<div id="<%= p.id %>">
+  <%= form_for(:bet, :url => {:action => :create, :controller => :bets}, :method => :post, :remote => true) do |f| %>
+    <%= f.hidden_field :round_id, :value => @round.id %>
+    <%= f.hidden_field :player_id, :value => p.id %>
+    <div class="field">
+        <%= f.label :amount_betted, "Monto a apostar" %><br>
+        <% if p.money <= 1000 %>
+            <h5>Tiene que ser de: </h5>
+            <%= f.number_field :amount_betted, value: p.money, :readonly => true %>
+        <% else %>
+            <h5>Puede ser entre: <%= p.bet_between %></h5>
+            <%= f.number_field :amount_betted %>
+        <% end %>
+    </div>
+    <div class="field">
+        <%= f.label :roulette_choice, "Opción ruleta" %><br>
+        <%= f.number_field :roulette_choice %>
+    </div>
+    <div class="actions">
+        <%= f.submit "apostar", class: "btn btn-defaul" %>
+    </div>
+    <% end %>
+</div>
+<% end %>
